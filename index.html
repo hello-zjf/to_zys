@@ -15,10 +15,7 @@
         body {
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            padding: 10px;
             overflow: hidden;
             position: relative;
         }
@@ -28,31 +25,35 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 40px 30px;
+            padding: 30px 20px;
             text-align: center;
-            max-width: 450px;
-            width: 90%;
+            max-width: 100%;
+            width: 100%;
             z-index: 1000;
             animation: fadeIn 0.5s ease;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
         
         .gift-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 3rem;
+            margin-bottom: 15px;
             display: block;
         }
         
         .modal-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: #333;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             font-weight: bold;
         }
         
         .modal-message {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #666;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             line-height: 1.6;
         }
         
@@ -61,8 +62,8 @@
             border: none;
             border-radius: 50px;
             color: white;
-            font-size: 1.2rem;
-            padding: 12px 40px;
+            font-size: 1rem;
+            padding: 10px 30px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 123, 156, 0.4);
@@ -80,10 +81,10 @@
         /* 消息弹窗样式 */
         .message-popup {
             position: absolute;
-            width: 200px;
-            min-height: 60px;
+            width: 150px;
+            min-height: 50px;
             border-radius: 10px;
-            padding: 15px;
+            padding: 12px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
@@ -94,21 +95,21 @@
         }
         
         .popup-title {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
             color: #555;
         }
         
         .popup-content {
-            font-size: 16px;
-            line-height: 1.4;
+            font-size: 14px;
+            line-height: 1.3;
         }
         
         /* 动画 */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; transform: translateY(20px) translate(-50%, -50%); }
+            to { opacity: 1; transform: translateY(0) translate(-50%, -50%); }
         }
         
         @keyframes popIn {
@@ -118,27 +119,48 @@
         
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
         }
         
-        /* 响应式设计 */
+        /* 响应式设计 - 手机优先 */
         @media (max-width: 600px) {
             .message-popup {
-                width: 160px;
-                min-height: 50px;
+                width: 140px;
+                min-height: 45px;
                 padding: 10px;
             }
             
             .popup-content {
-                font-size: 14px;
+                font-size: 13px;
             }
             
             .initial-modal {
-                padding: 30px 20px;
+                padding: 25px 15px;
             }
             
             .modal-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+            
+            .gift-icon {
+                font-size: 2.5rem;
+            }
+        }
+        
+        /* 针对小屏手机的优化 */
+        @media (max-width: 400px) {
+            .message-popup {
+                width: 130px;
+                min-height: 40px;
+                padding: 8px;
+            }
+            
+            .popup-content {
+                font-size: 12px;
+            }
+            
+            .popup-title {
+                font-size: 11px;
             }
         }
     </style>
@@ -171,28 +193,24 @@
             "今天也要加油哦！",
             "你真的很棒！",
             "梦想成真~",
-            "遇见你真的蛮幸运的！",
             "保持微笑吖~",
             "多喜乐，长安宁！",
             "人生海海，祝你有帆有岸",
             "你是独一无二的存在",
             "午饭要吃热乎的哦~",
-            "今天也要做开心的小大人呀！",
             "累了就歇一歇",
             "祝你好梦~",
             "今天忙不忙呀",
             "吹吹晚风，放空自己！",
-            "没什么是一杯奶茶解决不了的",
+            "没有什么是一杯奶茶解决不了的",
             "一起去吃火锅呀",
             "吃点好吃的心情也会变好呢",
             "一起去淌水不",
             "今天的云也好好看呀",
             "最近有啥开心的事呢",
-            "有没有想去玩的地方呢",
             "愿你所有烦恼都消失",
             "一起去逛公园不",
             "多吃水果哦~",
-            "吃点好吃的奖励自己吧！",
             "希望你工作顺顺利利的~",
             "遇见你很幸运",
             "所有的美好都在路上呢",
@@ -200,8 +218,6 @@
             "愿你永远鲜活明媚",
             "愿你被温柔以待",
             "这段时间累不累呀",
-            "没有什么是火锅解决不了的",
-            "最近伙食怎么样呢",
             "要按时吃饭哦",
             "偶尔也允许自己偷偷懒吧",
             "你值得被世界温柔以待",
@@ -257,8 +273,8 @@
         
         // 开始显示弹窗
         function startShowingPopups() {
-            // 设置弹窗速度（毫秒）- 可以修改这个值来控制弹窗出现的速度
-            const speed = 100; // 每300毫秒创建一个新弹窗
+            // 设置弹窗速度（毫秒）- 加快弹窗出现速度
+            const speed = 80; // 从100毫秒减少到80毫秒，加快出现速度
             
             // 如果已经在创建弹窗，先清除之前的定时器
             if (timer) {
@@ -282,11 +298,20 @@
             popup.className = 'message-popup';
             popup.style.backgroundColor = `rgb(${randomColor.r}, ${randomColor.g}, ${randomColor.b})`;
             
-            // 随机位置（确保在可视区域内）
-            const maxX = window.innerWidth - 220;
-            const maxY = window.innerHeight - 100;
-            const randomX = Math.max(20, Math.min(maxX, Math.floor(Math.random() * maxX)));
-            const randomY = Math.max(20, Math.min(maxY, Math.floor(Math.random() * maxY)));
+            // 优化位置计算，让弹窗更密集
+            const popupWidth = 150; // 与CSS中保持一致
+            const popupHeight = 60; // 与CSS中保持一致
+            
+            // 计算可用空间，考虑更小的边距
+            const horizontalMargin = 5; // 减少水平边距
+            const verticalMargin = 5;   // 减少垂直边距
+            
+            const maxX = window.innerWidth - popupWidth - horizontalMargin;
+            const maxY = window.innerHeight - popupHeight - verticalMargin;
+            
+            // 确保位置在屏幕内
+            const randomX = Math.max(horizontalMargin, Math.min(maxX, Math.floor(Math.random() * maxX)));
+            const randomY = Math.max(verticalMargin, Math.min(maxY, Math.floor(Math.random() * maxY)));
             
             popup.style.left = `${randomX}px`;
             popup.style.top = `${randomY}px`;
@@ -305,12 +330,12 @@
             // 添加到页面
             document.body.appendChild(popup);
             
-            // 10秒后自动移除弹窗
+            // 15秒后自动移除弹窗（稍微延长一点）
             setTimeout(() => {
                 if (popup.parentNode) {
                     popup.remove();
                 }
-            }, 20000);
+            }, 15000);
         }
     </script>
 </body>
